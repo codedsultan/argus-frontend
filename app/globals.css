@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f4f0e6;
+  --color-paper-deep: #eae3d5;
+  --color-ink: #17241d;
+  --color-ink-soft: #425146;
+  --color-forest: #1c3a2c;
+  --color-forest-deep: #12281e;
+  --color-moss: #5e7a61;
+  --color-amber: #c8892f;
+  --color-amber-soft: #e8c98f;
+  --color-clay: #b45736;
+  --color-line: #d8d0c0;
+  --color-mist: #e7e1d5;
+
+  --font-display:
+    ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif;
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    monospace;
+
+  --animate-rise: argus-rise 0.45s ease-out both;
+  --animate-fade: argus-fade 0.35s ease-out both;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-amber);
+  color: var(--color-ink);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(23, 36, 29, 0.22) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(23, 36, 29, 0.22);
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.display {
+  font-family: var(--font-display);
+  letter-spacing: -0.035em;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.paper-noise {
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(200, 137, 47, 0.09), transparent 28rem),
+    radial-gradient(circle at 88% 12%, rgba(94, 122, 97, 0.1), transparent 32rem),
+    radial-gradient(circle at 50% 100%, rgba(23, 36, 29, 0.045), transparent 40rem);
+}
+
+.field-grid {
+  background-image:
+    linear-gradient(to right, rgba(23, 36, 29, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(23, 36, 29, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
+.card-shadow {
+  box-shadow:
+    0 1px 0 rgba(23, 36, 29, 0.05),
+    0 18px 45px -28px rgba(23, 36, 29, 0.45);
+}
+
+.admin-grid {
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.admin-scroll {
+  scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
+}
+
+.admin-scroll::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.35);
+}
+
+.prose-editorial h2 {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  letter-spacing: -0.025em;
+  margin-top: 2.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-editorial p,
+.prose-editorial li {
+  color: var(--color-ink-soft);
+  line-height: 1.75;
+}
+
+.prose-editorial p + p {
+  margin-top: 1rem;
+}
+
+.prose-editorial ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin-top: 0.75rem;
+}
+
+.prose-editorial li + li {
+  margin-top: 0.4rem;
+}
+
+.prose-editorial a {
+  color: var(--color-forest);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@keyframes argus-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes argus-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes argus-shimmer {
+  0% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 0.35;
+  }
+}
+
+.shimmer {
+  animation: argus-shimmer 1.4s ease-in-out infinite;
+}
